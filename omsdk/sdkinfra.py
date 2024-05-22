@@ -21,7 +21,8 @@
 # Authors: Vaideeswaran Ganesan
 #
 import os
-import imp
+import importlib.util
+import importlib.machinery
 import logging
 import socket
 import sys, glob
@@ -29,6 +30,18 @@ from collections import OrderedDict
 from omsdk.sdkcenum import EnumWrapper, TypeHelper
 
 logger = logging.getLogger(__name__)
+
+
+# https://docs.python.org/3/whatsnew/3.12.html#imp
+def load_module(modname, filename, compiled):
+    if compiled:
+        loader = importlib.machinery.SourcelessFileLoader(modname, filename)
+    else:
+        loader = importlib.machinery.SourceFileLoader(modname, filename)
+    spec = importlib.util.spec_from_file_location(modname, filename, loader=loader)
+    module = importlib.util.module_from_spec(spec)
+    loader.exec_module(module)
+    return module
 
 
 class sdkinfra:
@@ -45,9 +58,9 @@ class sdkinfra:
         mod_name, file_ext = os.path.splitext(os.path.split(filepath)[-1])
         logger.debug("Loading " + filepath + "...")
         if file_ext.lower() == '.py':
-            py_mod = imp.load_source(mod_name, filepath)
+            py_mod = load_module(mod_name, filepath, False)
         elif file_ext.lower() == '.pyc':
-            py_mod = imp.load_compiled(mod_name, filepath)
+            py_mod = load_module(mod_name, filepath, True)
         return {"name": mod_name, "module": py_mod}
     
     def importPath(self, srcdir=None):
