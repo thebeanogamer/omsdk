@@ -34,8 +34,8 @@ setup(
     url='https://support.dell.com',
 
     # Author details
-    author='Vaideeswaran Ganesan',
-    author_email='vaideeswaran_ganesan@dell.com',
+    author='Dell Technologies',
+    author_email='OpenManageSDK@Dell.com',
 
     # Choose your license
     license='Apache Software License',

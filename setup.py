@@ -19,7 +19,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 # Update the package version here
-omsdk_ver = '1.2.509'
+omsdk_ver = '1.2.513'
 
 # conditional dependency:include enum34 if python 2 is in use
 debug_l1_en = False
@@ -64,8 +64,9 @@ setup(
     url='https://github.com/dell/omsdk',
 
     # Author details
-    author='Vaideeswaran Ganesan',
-    author_email='vaideeswaran_ganesan@dell.com',
+    author='Dell Technologies',
+
+    author_email='OpenManageSDK@Dell.com',
 
     # Choose your license
     license='Apache Software License',
