@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #
-# Copyright © 2018 Dell Inc. or its subsidiaries. All rights reserved.
+# Copyright © 2018-2024 Dell Inc. or its subsidiaries. All rights reserved.
 # Dell, EMC, and other trademarks are trademarks of Dell Inc. or its subsidiaries.
 # Other trademarks may be trademarks of their respective owners.
 #
@@ -20,8 +20,8 @@
 #
 # Authors: Vaideeswaran Ganesan
 #
-from pysnmp.carrier.asynsock.dispatch import AsynsockDispatcher
-from pysnmp.carrier.asynsock.dgram import udp, udp6
+from pysnmp.carrier.asyncio.dispatch import AsyncioDispatcher
+from pysnmp.carrier.asyncio.dgram import udp, udp6
 from pyasn1.codec.ber import decoder
 from pysnmp.proto import api
 import logging
@@ -76,18 +76,18 @@ def cbFun(transportDispatcher, transportDomain, transportAddress, wholeMsg):
     return wholeMsg
 
 
-transportDispatcher = AsynsockDispatcher()
+transportDispatcher = AsyncioDispatcher()
 
 transportDispatcher.registerRecvCbFun(cbFun)
 
 # UDP/IPv4
 transportDispatcher.registerTransport(
-    udp.domainName, udp.UdpSocketTransport().openServerMode(('localhost', 162))
+    udp.domainName, udp.UdpAsyncioTransport().openServerMode(('localhost', 162))
 )
 
 # UDP/IPv6
 transportDispatcher.registerTransport(
-    udp6.domainName, udp6.Udp6SocketTransport().openServerMode(('::1', 162))
+    udp6.domainName, udp6.Udp6AsyncioTransport().openServerMode(('::1', 162))
 )
 
 transportDispatcher.jobStarted(1)

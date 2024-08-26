@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #
-# Copyright © 2018 Dell Inc. or its subsidiaries. All rights reserved.
+# Copyright © 2018-2024 Dell Inc. or its subsidiaries. All rights reserved.
 # Dell, EMC, and other trademarks are trademarks of Dell Inc. or its subsidiaries.
 # Other trademarks may be trademarks of their respective owners.
 #
@@ -20,15 +20,13 @@
 #
 # Authors: Vaideeswaran Ganesan
 #
-from enum import Enum
 from datetime import datetime
 from omsdk.sdkcreds import ProtocolCredentialsFactory, CredentialsEnum
 from omsdk.sdksnmp import SNMPProtocol, EntityMibConvertor
-from omsdk.sdkcenum import EnumWrapper, TypeHelper
+from omsdk.sdkcenum import TypeHelper
 from omsdk.sdkprotopref import ProtoPreference, ProtocolEnum
-from omsdk.sdkprint import PrettyPrint
 from omsdk.sdkunits import UnitsFactory
-from omsdk.sdkentitymib import EntityCompEnum, EntitySNMPViews, EntityComponentTree
+from omsdk.sdkentitymib import EntityCompEnum, EntitySNMPViews
 from omsdk.simulator.devicesim import Simulator
 import json
 import re

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #
-# Copyright © 2018 Dell Inc. or its subsidiaries. All rights reserved.
+# Copyright © 2018-2024 Dell Inc. or its subsidiaries. All rights reserved.
 # Dell, EMC, and other trademarks are trademarks of Dell Inc. or its subsidiaries.
 # Other trademarks may be trademarks of their respective owners.
 #
@@ -21,18 +21,12 @@
 # Authors: Vaideeswaran Ganesan
 #
 import sys
-import json
 import os
 
 sys.path.append(os.getcwd())
 
-from pprint import pprint
 
-from sys import stdout, path
-from omsdk.sdkenum import ComponentScope
-from omsdk.sdkenum import CreateMonitorScopeFilter
 from omsdk.sdkenum import MonitorScopeFilter, MonitorScope
-from omsdk.sdkinfra import sdkinfra
 import logging
 
 logger = logging.getLogger(__name__)

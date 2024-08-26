@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #
-# Copyright © 2018 Dell Inc. or its subsidiaries. All rights reserved.
+# Copyright © 2018-2024 Dell Inc. or its subsidiaries. All rights reserved.
 # Dell, EMC, and other trademarks are trademarks of Dell Inc. or its subsidiaries.
 # Other trademarks may be trademarks of their respective owners.
 #
@@ -22,9 +22,7 @@
 #
 import subprocess
 import io
-from xml.dom.minidom import parse
 import xml.dom.minidom
-import json
 import logging
 
 logger = logging.getLogger(__name__)

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #
-# Copyright © 2018 Dell Inc. or its subsidiaries. All rights reserved.
+# Copyright © 2018-2024 Dell Inc. or its subsidiaries. All rights reserved.
 # Dell, EMC, and other trademarks are trademarks of Dell Inc. or its subsidiaries.
 # Other trademarks may be trademarks of their respective owners.
 #
@@ -23,18 +23,12 @@
 import os
 import json
 import logging
-import re
-from enum import Enum
-from datetime import datetime
 from omsdk.sdkenum import MonitorScope, MonitorScopeMap
-from omsdk.sdkenum import MonitorScopeFilter, ComponentScope
+from omsdk.sdkenum import ComponentScope
 from omsdk.sdkenum import MonitorScopeFilter_All
-from omsdk.sdkprint import PrettyPrint
-from omsdk.sdkproto import ProtocolFactory, ProtocolEnum
-from omsdk.sdkcenum import TypeHelper, EnumWrapper
+from omsdk.sdkproto import ProtocolFactory
+from omsdk.sdkcenum import TypeHelper
 from omsdk.sdkconnfactory import ConnectionFactory
-from omsdk.sdkprotopref import ProtoMethods
-import sys
 
 logger = logging.getLogger(__name__)
 

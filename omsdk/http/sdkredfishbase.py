@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #
-# Copyright © 2018 Dell Inc. or its subsidiaries. All rights reserved.
+# Copyright © 2018-2024 Dell Inc. or its subsidiaries. All rights reserved.
 # Dell, EMC, and other trademarks are trademarks of Dell Inc. or its subsidiaries.
 # Other trademarks may be trademarks of their respective owners.
 #
@@ -27,14 +27,11 @@ import json
 import requests
 import requests.adapters
 import requests.exceptions
-import requests.packages.urllib3
+import urllib3
 from requests.auth import HTTPBasicAuth, HTTPDigestAuth
-# from requests_oauthlib import OAuth1Session, OAuth2Session
-
 from omsdk.sdkprotobase import ProtocolBase
-from omsdk.sdkcenum import EnumWrapper, TypeHelper
-from omsdk.sdkprotopref import ProtoPreference, ProtocolEnum
-from omsdk.http.sdkhttpep import HttpEndPoint, HttpEndPointOptions, AuthenticationType
+from omsdk.sdkprotopref import ProtocolEnum
+from omsdk.http.sdkhttpep import HttpEndPointOptions, AuthenticationType
 import time
 
 logger = logging.getLogger(__name__)
@@ -91,7 +88,7 @@ class RedfishProtocolBase(ProtocolBase):
         self.session.verify = self.pOptions.verify_ssl
         self.session.cert = self.pOptions.cert
         if not self.pOptions.verify_ssl: 
-            requests.packages.urllib3.disable_warnings()
+            urllib3.disable_warnings()
         if self.pOptions.authentication == AuthenticationType.Basic:
             self.session.auth = HTTPBasicAuth(creds.username, creds.password)
         if self.pOptions.authentication == AuthenticationType.Digest:

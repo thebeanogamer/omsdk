@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #
-# Copyright © 2018 Dell Inc. or its subsidiaries. All rights reserved.
+# Copyright © 2018-2024 Dell Inc. or its subsidiaries. All rights reserved.
 # Dell, EMC, and other trademarks are trademarks of Dell Inc. or its subsidiaries.
 # Other trademarks may be trademarks of their respective owners.
 #
@@ -24,13 +24,8 @@ import sys
 import os
 import logging
 sys.path.append(os.getcwd())
-from omsdk.sdkproto import ProtocolEnum
-from omsdk.sdkprotopref import ProtoPreference, ProtoMethods
-from omsdk.sdkcenum import EnumWrapper, TypeHelper
-from omsdk.sdkprint import PrettyPrint
+from omsdk.sdkcenum import TypeHelper
 
-from enum import Enum
-import re
 
 PY2 = sys.version_info[0] == 2
 PY3 = sys.version_info[0] == 3

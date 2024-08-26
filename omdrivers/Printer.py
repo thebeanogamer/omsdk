@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #
-# Copyright © 2018 Dell Inc. or its subsidiaries. All rights reserved.
+# Copyright © 2018-2024 Dell Inc. or its subsidiaries. All rights reserved.
 # Dell, EMC, and other trademarks are trademarks of Dell Inc. or its subsidiaries.
 # Other trademarks may be trademarks of their respective owners.
 #
@@ -20,11 +20,8 @@
 #
 # Authors: Vaideeswaran Ganesan
 #
-from enum import Enum
 from omsdk.sdkdevice import iDeviceDiscovery, iDeviceRegistry, iDeviceDriver
 from omsdk.sdkcenum import EnumWrapper
-from omsdk.sdkfile import FileOnShare, Share
-from omsdk.sdkcreds import UserCredentials
 from omsdk.sdkproto import PSNMP
 import sys
 
@@ -34,10 +31,7 @@ PY3 = sys.version_info[0] == 3
 try:
     from pysnmp.hlapi import *
     from pysnmp.smi import *
-    from pysnmp.entity.rfc3413.oneliner import cmdgen
-    from pysnmp.proto import rfc1902
-    from pysnmp import debug
-
+    from pysnmp.smi.rfc1902 import ObjectIdentity
     PySnmpPresent = True
 except ImportError:
     PySnmpPresent = False
