@@ -46,6 +46,7 @@ PY3 = sys.version_info[0] == 3
 try:
     from pysnmp.hlapi import *
     from pysnmp.smi import *
+    from pysnmp.smi.rfc1902 import ObjectIdentity
     PySnmpPresent = True
 except ImportError:
     PySnmpPresent = False
