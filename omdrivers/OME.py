@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #
-# Copyright © 2018 Dell Inc. or its subsidiaries. All rights reserved.
+# Copyright © 2018-2024 Dell Inc. or its subsidiaries. All rights reserved.
 # Dell, EMC, and other trademarks are trademarks of Dell Inc. or its subsidiaries.
 # Other trademarks may be trademarks of their respective owners.
 #
@@ -25,7 +25,6 @@ import os
 import logging
 from omsdk.sdkproto import PCONSOLE
 from omsdk.sdkconsole import iConsoleRegistry, iConsoleDriver, iConsoleDiscovery
-from omsdk.sdkprint import PrettyPrint
 
 import sys
 

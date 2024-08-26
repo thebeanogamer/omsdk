@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #
-# Copyright © 2018 Dell Inc. or its subsidiaries. All rights reserved.
+# Copyright © 2018-2024 Dell Inc. or its subsidiaries. All rights reserved.
 # Dell, EMC, and other trademarks are trademarks of Dell Inc. or its subsidiaries.
 # Other trademarks may be trademarks of their respective owners.
 #
@@ -23,10 +23,7 @@
 import requests
 import requests.adapters
 import requests.exceptions
-import requests.packages.urllib3
-from requests.packages.urllib3.exceptions import InsecureRequestWarning
-from requests.packages.urllib3.exceptions import InsecurePlatformWarning
-from omsdk.sdkcenum import EnumWrapper, TypeHelper
+from omsdk.sdkcenum import EnumWrapper
 import logging
 
 
@@ -88,10 +85,6 @@ class HttpEndPoint(object):
         if self.session:
             return True
         self._logger.debug("Attempting a connection to device")
-        # requests.packages.urllib3.disable_warnings(InsecurePlatformWarning)
-        # requests.packages.urllib3.disable_warnings(SNIMissingWarning)
-        # if not self.pOptions.verify_ssl:
-        #     requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
         self.adapter = requests.adapters.HTTPAdapter(
                 pool_connections = 1,

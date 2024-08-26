@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #
-# Copyright © 2018 Dell Inc. or its subsidiaries. All rights reserved.
+# Copyright © 2018-2024 Dell Inc. or its subsidiaries. All rights reserved.
 # Dell, EMC, and other trademarks are trademarks of Dell Inc. or its subsidiaries.
 # Other trademarks may be trademarks of their respective owners.
 #
@@ -20,8 +20,8 @@
 #
 # Authors: Vaideeswaran Ganesan
 #
-from pysnmp.carrier.asynsock.dispatch import AsynsockDispatcher
-from pysnmp.carrier.asynsock.dgram import udp, udp6
+from pysnmp.carrier.asyncio.dispatch import AsyncioDispatcher
+from pysnmp.carrier.asyncio.dgram import udp, udp6
 from pyasn1.codec.ber import encoder
 from pysnmp.proto import api
 
@@ -44,11 +44,11 @@ pMod.apiMessage.setDefaults(trapMsg)
 pMod.apiMessage.setCommunity(trapMsg, 'public')
 pMod.apiMessage.setPDU(trapMsg, trapPDU)
 
-transportDispatcher = AsynsockDispatcher()
+transportDispatcher = AsyncioDispatcher()
 
 # UDP/IPv4
 transportDispatcher.registerTransport(
-    udp.domainName, udp.UdpSocketTransport().openClientMode()
+    udp.domainName, udp.UdpAsyncioTransport().openClientMode()
 )
 transportDispatcher.sendMessage(
     encoder.encode(trapMsg), udp.domainName, ('localhost', 162)
@@ -56,7 +56,7 @@ transportDispatcher.sendMessage(
 
 # UDP/IPv6
 transportDispatcher.registerTransport(
-    udp6.domainName, udp6.Udp6SocketTransport().openClientMode()
+    udp6.domainName, udp6.Udp6AsyncioTransport().openClientMode()
 )
 transportDispatcher.sendMessage(
     encoder.encode(trapMsg), udp6.domainName, ('::1', 162)

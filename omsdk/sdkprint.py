@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #
-# Copyright © 2018 Dell Inc. or its subsidiaries. All rights reserved.
+# Copyright © 2018-2024 Dell Inc. or its subsidiaries. All rights reserved.
 # Dell, EMC, and other trademarks are trademarks of Dell Inc. or its subsidiaries.
 # Other trademarks may be trademarks of their respective owners.
 #
@@ -42,9 +42,7 @@ logger = logging.getLogger(__name__)
 try:
     from pysnmp.hlapi import *
     from pysnmp.smi import *
-    from pysnmp.entity.rfc3413.oneliner import cmdgen
     from pysnmp.proto import rfc1902
-    from pysnmp import debug
     PySnmpPresent = True
 except ImportError:
     PySnmpPresent = False

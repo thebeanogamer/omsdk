@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #
-# Copyright © 2018 Dell Inc. or its subsidiaries. All rights reserved.
+# Copyright © 2018-2024 Dell Inc. or its subsidiaries. All rights reserved.
 # Dell, EMC, and other trademarks are trademarks of Dell Inc. or its subsidiaries.
 # Other trademarks may be trademarks of their respective owners.
 #
@@ -20,10 +20,7 @@
 #
 # Authors: Vaideeswaran Ganesan
 #
-from enum import Enum
-from omsdk.sdkcreds import ProtocolCredentialsFactory, CredentialsEnum
 from datetime import datetime
-from omsdk.sdkprint import PrettyPrint
 from omsdk.sdkcenum import TypeHelper
 
 import sys

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #
-# Copyright © 2018 Dell Inc. or its subsidiaries. All rights reserved.
+# Copyright © 2018-2024 Dell Inc. or its subsidiaries. All rights reserved.
 # Dell, EMC, and other trademarks are trademarks of Dell Inc. or its subsidiaries.
 # Other trademarks may be trademarks of their respective owners.
 #
@@ -21,27 +21,20 @@
 # Authors: Vaideeswaran Ganesan
 #
 import sys
-import io
 import logging
-import traceback
 import json
-from enum import Enum
 
-import xml.etree.ElementTree as ET
 
 import requests
 import requests.adapters
 import requests.exceptions
-import requests.packages.urllib3
-from requests.packages.urllib3.exceptions import InsecureRequestWarning
 from requests.auth import HTTPBasicAuth
 
 from omsdk.sdkprotobase import ProtocolBase
 from omsdk.sdkcenum import EnumWrapper, TypeHelper
 from omsdk.http.sdkwsmanpdu import WsManRequest, WsManResponse
-from omsdk.http.sdkhttpep import HttpEndPoint, HttpEndPointOptions, AuthenticationType
-from omsdk.sdkprotopref import ProtoPreference, ProtocolEnum
-from omsdk.sdkprint import PrettyPrint
+from omsdk.http.sdkhttpep import HttpEndPointOptions, AuthenticationType
+from omsdk.sdkprotopref import ProtocolEnum
 import logging
 
 logger = logging.getLogger(__name__)

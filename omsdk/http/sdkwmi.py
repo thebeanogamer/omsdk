@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #
-# Copyright © 2018 Dell Inc. or its subsidiaries. All rights reserved.
+# Copyright © 2018-2024 Dell Inc. or its subsidiaries. All rights reserved.
 # Dell, EMC, and other trademarks are trademarks of Dell Inc. or its subsidiaries.
 # Other trademarks may be trademarks of their respective owners.
 #
@@ -22,9 +22,7 @@
 #
 import sys
 from omsdk.http.sdkwsmanbase import WsManProtocolBase, WsManOptions
-from winrm.transport import Transport
 from winrm.protocol import Protocol
-from omsdk.sdkprint import PrettyPrint
 import traceback
 import logging
 

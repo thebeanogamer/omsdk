@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #
-# Copyright © 2018 Dell Inc. or its subsidiaries. All rights reserved.
+# Copyright © 2018-2024 Dell Inc. or its subsidiaries. All rights reserved.
 # Dell, EMC, and other trademarks are trademarks of Dell Inc. or its subsidiaries.
 # Other trademarks may be trademarks of their respective owners.
 #
@@ -23,11 +23,8 @@
 import json
 import glob
 import re
-import io
 import os
-from enum import Enum
 from sys import stdout
-import sys
 from omsdk.sdkcenum import TypeHelper, EnumWrapper
 from omsdk.sdkcunicode import UnicodeWriter, UnicodeStringWriter, UnicodeHelper
 import threading

@@ -20,10 +20,9 @@
 #
 # Authors: Sachin Apagundi
 #
-from enum import Enum
 from omsdk.sdkdevice import iDeviceDiscovery, iDeviceRegistry, iDeviceDriver
 from omsdk.sdkcenum import EnumWrapper
-from omsdk.sdkproto import PSNMP, ProtocolEnum
+from omsdk.sdkproto import PSNMP
 import sys
 import logging
 
@@ -35,9 +34,7 @@ PY3 = sys.version_info[0] == 3
 try:
     from pysnmp.hlapi import *
     from pysnmp.smi import *
-    from pysnmp.entity.rfc3413.oneliner import cmdgen
-    from pysnmp.proto import rfc1902
-    from pysnmp import debug
+    from pysnmp.smi.rfc1902 import ObjectIdentity
     PyPSNMP = True
 except ImportError:
     PyPSNMP = False

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #
-# Copyright © 2018 Dell Inc. or its subsidiaries. All rights reserved.
+# Copyright © 2018-2024 Dell Inc. or its subsidiaries. All rights reserved.
 # Dell, EMC, and other trademarks are trademarks of Dell Inc. or its subsidiaries.
 # Other trademarks may be trademarks of their respective owners.
 #
@@ -20,13 +20,9 @@
 #
 # Authors: Vaideeswaran Ganesan
 #
-import sys, os
-import re
-import json
 import threading
 
-from omsdk.sdkprint import PrettyPrint
-from omsdk.sdkdelta import DiffFilter, DiffStyle, DiffScope
+from omsdk.sdkdelta import DiffFilter
 from omsdk.sdkdelta import DeltaComputer
 from omsdk.sdkstore import EntityStore
 import logging
